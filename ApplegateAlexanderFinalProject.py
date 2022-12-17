@@ -3,6 +3,7 @@ import tkinter as tk
 from tkinter import *
 from tkinter.ttk import *
 from tkinter import ttk
+#from PIL import ImageTk, Image
 
 
 variables= dict()
@@ -87,7 +88,16 @@ sundae_input = tk.Listbox(root, height = 3)
 sundae_choices = ('Whip cream', 'Nuts', 'Cherry on top')
 for choice in sundae_choices:
     sundae_input.insert(tk.END, choice)
-    
+
+#Images
+#Shake
+#shake = tk.PhotoImage(file = 'C:\\Users\\alexa\Documents\Python Files\\tkinter final\\shake.png')
+#shake_image = tk.Label(root, image = shake, width=100, height=100)
+
+#Sundae
+#sundae = tk.PhotoImage('C:\\Users\\alexa\Documents\Python Files\\tkinter final\\sundae.png')
+#sundae_image = tk.Label(root, image = sundae, width=100, height=100)
+
 #building shakes
 shakes_txt = tk.Label(root, text = 'Shakes', bg='light blue', fg = '#FFFFFF')
 shakes_label = tk.Label(root, text = 'Toppings for your shake', bg='light blue', fg = '#FFFFFF')
@@ -102,11 +112,11 @@ variables['Flavor'] = tk.StringVar()
 flavour_var = tk.StringVar()
 shakesF_input= ttk.Combobox(root, textvariable = flavour_var, values=flavour_values, state= 'readonly')
 #size drop down
-shakesS_label = tk.Label(root, text = 'What flavour for your shake', bg='light blue', fg = '#FFFFFF')
+shakesS_label = tk.Label(root, text = 'What size for your shake', bg='light blue', fg = '#FFFFFF')
 sizes_values= ['Small', 'Medium', 'Large']
 variables['size'] = tk.StringVar()
 sizes_var = tk.StringVar()
-shakesS_input= ttk.Combobox(root, textvariable = flavour_var, values=flavour_values, state= 'readonly')
+shakesS_input= ttk.Combobox(root, textvariable = sizes_var, values=sizes_values, state= 'readonly')
 
 #buttons
 submit_button = tk.Button(root, text = 'Submit order', command = on_submit)
@@ -131,12 +141,15 @@ sundae_input.grid(row = 6, column = 1)
 shakes_txt.grid(row = 2, column = 2)
 shakes_label.grid(row = 7, column = 2)
 shakes_input.grid(row = 8, column = 2)
-shakesF_label.grid(row = 3, column = 2) 
 #Flavour
+shakesF_label.grid(row = 3, column = 2) 
 shakesF_input.grid(row = 4, column = 2)
-shakesS_input.grid(row = 6, column = 2) 
 #Size
+shakesS_input.grid(row = 6, column = 2) 
 shakesS_label.grid(row = 5, column = 2)
+#image
+#shake_image.grid(row = 2, column = 3)
+
 #buttons, submit and exit
 submit_button.grid(row = 10, column = 1)
 exit_button.grid(row = 10, column = 2)
